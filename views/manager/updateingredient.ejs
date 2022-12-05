@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <title>Update Ingredient</title>
+    <link rel="stylesheet" href="/Main1.css">
+</head>
+<body>
+    
+
+    <nav id="nav_bar">
+        <img src="/pom_honey_logo.png" id="pom_logo">
+        <a href="inventory"><div id="nav_storeOrders">Inventory</div></a>
+    </nav>
+    
+    <div id="form_wrapper">
+        <form action="updateingredient" method="post">
+            <label for="ingredientid">Ingredient ID:</label>
+            <input id="ingredientid" type="text" name="ingredientid"/>
+            <label for="ingredientname">Ingredient Name:</label>
+            <input id="ingredientname" type="text" name="ingredientname"/>
+            <label for="ingredientstock">Ingredient Stock:</label>
+            <input id="ingredientstock" type="text" name="ingredientstock"/>
+            <label for="ingredientlaststocked">Ingredient Last Stocked:</label>
+            <input id="ingredientlaststocked" type="text" name="ingredientlaststocked"/>
+            <label for="ingredientstockstatus">Ingredient Stock Status:</label>
+            <input id="ingredientstockstatus" type="text" name="ingredientstockstatus"/>
+            <label for="ingredientunit">Ingredient Unit:</label>
+            <input id="ingredientunit" type="text" name="ingredientunit"/>
+            <input type="submit" value="Update Ingredient"/>
+        </form>
+    </div>
+
+    <div id="google_translate_element"></div>
+ 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+ 
+    <script type="text/javascript"
+            src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+    </script>
+
+</body>

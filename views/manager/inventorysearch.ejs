@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <title>Inventory Search</title>
+</head>
+<body>
+    <form action="inventorysearch" method="post">
+        <select id="inventoryattribute" name="inventoryattribute">
+            <option value="ingredientid" name="attribute">ID</option>
+            <option value="stock" name="attribute">Stock</option>
+            <option value="laststocked" name="attribute">Last Stocked</option>
+            <option value="stockstatus" name="attribute">Stock Status</option>
+            <option value="unit" name="attribute">Unit</option>
+            <option value="ingredientname" name="attribute">Name</option>
+        </select>
+        <label for="inventorysearch">Inventory Search</label>
+        <input id="inventorysearch" type="text" name="inventorysearch"/>
+        <input type="submit" value="Search" id = "submit"/>
+    </form>
+</body>

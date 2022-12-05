@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <title><%=items[item[0]].itemname%></title>
+</head>
+<body>
+    <form action="kiosk" method="post">
+    <% for (var i in ingredients1) { %>
+        <input id="<%=i%>" type="checkbox" name="<%=i%>" value="<%=ingredients1[i]%>">
+        <label for="<%=i%>"><%=ingredients[ingredients1[i]].ingredientname%></label>
+    <% } %>
+    <input type="submit" value="Add Item">
+    </form>
+
+    <div id="google_translate_element"></div>
+ 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+ 
+    <script type="text/javascript"
+            src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+    </script>
+
+</body>

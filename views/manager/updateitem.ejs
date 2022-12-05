@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <title>Update Item</title>
+    <link rel="stylesheet" href="/Main1.css">
+</head>
+<body>
+    
+    
+
+    <nav id="nav_bar">
+        <img src="/pom_honey_logo.png" id="pom_logo">
+        <a href="menu"><div id="nav_storeOrders">Menu</div></a>
+    </nav>
+    
+    <div id="form_wrapper">
+        <form action="updateitem" method="post">
+            <label for="itemid">Item ID:</label>
+            <input id="itemid" type="text" name="itemid"/>
+            <label for="itemname">Item Name:</label>
+            <input id="itemname" type="text" name="itemname"/>
+            <label for="itemprice">Item Price:</label>
+            <input id="itemprice" type="text" name="itemprice"/>
+            <label for="onmenu">On Menu:</label>
+            <input id="onmenu" type="text" name="onmenu"/>
+            <input type="submit" value="Update Item"/ id="submit_button">
+        </form>
+    </div>
+
+    <div id="google_translate_element"></div>
+ 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+ 
+    <script type="text/javascript"
+            src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+    </script>
+
+</body>

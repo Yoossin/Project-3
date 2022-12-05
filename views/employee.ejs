@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>Employee</title>
+</head>
+<body>
+    <% for (var i in items) { %>
+        <form action="/employee" method="post">
+            <label for="item"></label>
+            <input id="item" type="hidden" name="item" value="<%=i%>">
+            <input type="submit" value="<%=items[i].itemname%>">
+        </form>
+    <% } %>
+    <form action="/employee" method="post">
+        <label for="completeorder"></label>
+        <input id="completeorder" type="hidden" name="completeorder" value="0"/>
+        <input type="submit" value="Complete Order"/>
+    </form>
+    <% price = 0 %>
+    <% for (var i in itemids) {%>
+        <% price += items[itemids[i]].price %>
+        <p><%=items[itemids[i]].itemname%>, <%=items[itemids[i]].price%><p>
+    <% } %>
+    <p><%=price%></p>
+
+    <div id="google_translate_element"></div>
+ 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+ 
+    <script type="text/javascript"
+            src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+    </script>
+
+</body>

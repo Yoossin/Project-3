@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+    <title>Customer Order Search</title>
+</head>
+<body>
+    <form action="customerordersearch" method="post">
+        <select id="customerorderattribute" name="customerorderattribute">
+            <option value="orderid" name="attribute">Order ID</option>
+            <option value="ordertimestamp" name="attribute">Timestamp</option>
+            <option value="price" name="attribute">Price</option>
+            <option value="employeeid" name="attribute">Employee ID</option>
+        </select>
+        <label for="customerordersearch">Customer Order Search</label>
+        <input id="customerordersearch" type="text" name="customerordersearch"/>
+        <input type="submit" value="Search" id = "submit"/>
+    </form>
+</body>

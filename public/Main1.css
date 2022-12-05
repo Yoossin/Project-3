@@ -1,0 +1,150 @@
+body{
+    margin: 0px;
+    background-color: #5d8b46;
+}
+#main_table{
+    width: 99.5%;
+    margin-right: 5px;
+    background-color: white;
+}
+#main_table td{
+    border: 1px solid black;
+}
+#main_table td{
+    text-align: center;
+}
+
+#table_wrapper{
+    width: 90%;
+    margin:auto;
+    height: 650px;
+    overflow-y: scroll;
+    margin-top:3%;
+    box-shadow: 0px 0px 30px #2e3874;
+}
+
+/* Navbar container */
+.navbar {
+    overflow: hidden;
+    background-color: #2e3874;
+    font-family: Arial;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Links inside the navbar */
+  .navbar a {   
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+
+.dropdown {
+    overflow: hidden;
+  }
+  
+  /* Dropdown button */
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: 5d8b46;
+  }
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #5d8b46;
+  } 
+
+.dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+#pom_logo{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    float: left;
+    height: 40px;
+    width: 80px;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: black;
+  }
+
+  
+#form_wrapper{
+    width: 25%;
+    margin:auto;
+    margin-top:3%;
+    box-shadow: 0px 0px 30px #2e3874;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+#form_wrapper input{
+    display:block;
+    margin: auto;
+    background-color: #2e3874;
+    color:white;
+}
+#form_wrapper label{
+    font-size: 18px;
+    color: white;
+    display:block;
+    text-align: center;
+    margin-top:2%;
+    margin-bottom: 3px;
+}
+
+#submit_button{
+    color: white;
+}
+
+  #error{
+    margin:auto;
+    width:90%;
+    color:white;
+    font-weight: bold;
+  }

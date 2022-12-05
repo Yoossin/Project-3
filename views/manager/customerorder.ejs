@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head>
+    <title>Customer Orders</title>
+    <link rel = "stylesheet" href = "/Main1.css"> 
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="/pom_honey_logo.png" id="pom_logo">
+        <div class="dropdown">
+          <button class="dropbtn">Customer Orders
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="customerorder">Customer Orders Home</a>
+            <a href="salesreport">Sales Report</a>
+            <a href="salestogether">Sales Together</a>
+            <a href="customerordersearch">Search</a>
+          </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Employees
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="employee">Employees Home</a>
+              <a href="addemployee">Add Employee</a>
+              <a href="removeemployee">Remove Employee</a>
+              <a href="updateemployee">Update Employee</a>
+              <a href="employeesearch">Search</a>
+            </div>
+          </div>
+        <div class="dropdown">
+            <button class="dropbtn">Inventory
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="inventory">Inventory Home</a>
+              <a href="addingredient">Add Ingredient</a>
+              <a href="removeingredient">Remove Ingredient</a>
+              <a href="updateingredient">Update Ingredient</a>
+              <a href="inventorysearch">Search</a>
+              <a href="excessreport">Excess Report</a>
+              <a href="restockreport">Restock Report</a>
+            </div>
+          </div>
+        <div class="dropdown">
+            <button class="dropbtn">Menu
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="menu">Menu Home</a>
+              <a href="additem">Add Item</a>
+              <a href="removeitem">Remove Item</a>
+              <a href="updateitem">Update Item</a>
+              <a href="menusearch">Search</a>
+            </div>
+          </div>
+        <div class="dropdown">
+            <button class="dropbtn">Store Orders
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="storeorder">Store Orders Home</a>
+              <a href="addstoreorder">Add Store Order</a>
+              <a href="storeordersearch">Search</a>
+            </div>
+          </div>
+        <a href="/customer/kiosk">Kiosk</a>
+      </div>
+
+    <div id="table_wrapper">
+    <table id="main_table">
+        <tr>
+            <th>Order ID</th>
+            <th>Time</th>
+            <th>Price</th>
+            <th>Employee ID</th>
+            <th>Item IDs</th>
+        </tr>
+        <% for (var i in customerorders) {%>
+            <tr>
+                <td id="order_id"><%=customerorders[i].orderid%></td>
+                <td id="time"><%=customerorders[i].ordertimestamp%></td> 
+                <td id="price"><%=customerorders[i].price%></td>
+                <td id="employee_id"><%=customerorders[i].employeeid%></td>
+                <td id="item_id"><% for (var j in customerorderitems[i]) {%>
+                    <%=customerorderitems[i][j].itemname%>,
+                <% } %></td>
+            </tr>
+        <% } %>
+    </table>
+    </div>
+
+    <div id="google_translate_element"></div>
+ 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+ 
+    <script type="text/javascript"
+            src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+    </script>
+
+</body>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+    <title>Menu</title>
+    <link rel="stylesheet" href="/kiosk.css">
+</head>
+<body>
+    <nav id="nav_bar">
+        <img src="/pom_honey_logo.png" id="pom_logo">
+        <a href="storelocation"><div id="storelocation">Store Location</div></a>
+    </nav>
+    <h1>ID, Name, Price, Ingredient IDs</h1>
+    <% for (var i in items) {%>
+        <p><%=items[i].itemid%>, <%=items[i].itemname%>, <%=items[i].price%>,
+        <% for (var j in itemingredients[i]) {%>
+            <%=itemingredients[i][j].ingredientname%>,
+        <% } %>
+        <p>
+    <% } %>
+
+    <div id="google_translate_element"></div>
+ 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+ 
+    <script type="text/javascript"
+            src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+    </script>
+
+</body>

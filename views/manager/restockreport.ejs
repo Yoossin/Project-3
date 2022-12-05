@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <title>Restock Report</title>
+</head>
+<body>
+    <a href="inventory">Inventory</a>
+    <h1>ID, Name, Stock, Last Stocked, Stock Status, Unit</h1>
+    <% for (var i in inventory) {%>
+        <p><%=inventory[i].ingredientid%>, <%=ingredients[inventory[i].ingredientid].ingredientname%>, <%=inventory[i].stock%>, <%=inventory[i].laststocked%>, <%=inventory[i].stockstatus%>, <%=inventory[i].unit%><p>
+    <% } %>
+
+    <div id="google_translate_element"></div>
+ 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+ 
+    <script type="text/javascript"
+            src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+    </script>
+
+</body>

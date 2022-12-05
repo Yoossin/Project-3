@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <title>Sales Together</title>
+</head>
+<body>
+    <a href="customerorder">Customer Order</a>
+    <a href="salestogethertimewindow">Time Window</a>
+    <h1>Item 1 ID, Name, Item 2 ID, Name, Number</h1>
+    <% for (var i in items) {%>
+        <p><%=items[i][0]%>, <%=items[i][1]%>, <%=items[i][2]%>, <%=items[i][3]%>, <%=items[i][4]%><p>
+    <% } %>
+
+    <div id="google_translate_element"></div>
+ 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+ 
+    <script type="text/javascript"
+            src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+    </script>
+
+</body>

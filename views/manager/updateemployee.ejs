@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="/Main1.css">
+</head>
+<body>
+
+    <nav id="nav_bar">
+        <img src="/pom_honey_logo.png" id="pom_logo">
+        <a href="employee"><div id="nav_storeOrders">Employees</div></a>
+    </nav>
+    
+    <div id="form_wrapper">
+        <form action="updateemployee" method="post">
+            <label for="employeeid">Employee ID:</label>
+            <input id="employeeid" type="text" name="employeeid"/>
+            <label for="employeename">Employee Name:</label>
+            <input id="employeename" type="text" name="employeename"/>
+            <label for="employeestatus">Employee Status:</label>
+            <input id="employeestatus" type="text" name="employeestatus"/>
+            <input type="submit" value="Update Employee"/>
+        </form>
+    </div>
+
+    <div id="google_translate_element"></div>
+ 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+ 
+    <script type="text/javascript"
+            src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+    </script>
+
+</body>

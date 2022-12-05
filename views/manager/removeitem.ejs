@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+    <title>Remove Item</title>
+    <link rel="stylesheet" href="/Main1.css">
+</head>
+<body>
+    
+
+    <nav id="nav_bar">
+        <img src="/pom_honey_logo.png" id="pom_logo">
+        <a href="menu"><div id="nav_storeOrders">Menu</div></a>
+    </nav>
+    
+    <div id="form_wrapper">
+        <form action="removeitem" method="post">
+            <label for="itemid">Item ID</label>
+            <input id="itemid" type="text" name="itemid"/>
+            <input type="submit" value="Remove Item" id="submit_button"/>
+        </form>
+    </div>
+
+    <div id="google_translate_element"></div>
+ 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+ 
+    <script type="text/javascript"
+            src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+    </script>
+
+</body>
