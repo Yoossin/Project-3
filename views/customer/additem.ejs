@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <head>
     <title><%=items[item[0]].itemname%></title>
+    <link rel = "stylesheet" href = "/Main1.css">
 </head>
 <body>
-    <form action="kiosk" method="post">
-    <% for (var i in ingredients1) { %>
-        <input id="<%=i%>" type="checkbox" name="<%=i%>" value="<%=ingredients1[i]%>">
-        <label for="<%=i%>"><%=ingredients[ingredients1[i]].ingredientname%></label>
-    <% } %>
-    <input type="submit" value="Add Item">
+    <div id="form_wrapper">
+        <form action="kiosk" method="post">
+        <% for (var i in ingredients1) { %>
+                <% if (ingredients[ingredients1[i]].ingredientid >= 32 && ingredients[ingredients1[i]].ingredientid <= 38) { %>
+                    <input id="<%=i%>" type="hidden" name="<%=i%>" value="<%=ingredients1[i]%>">
+                <% } else { %>
+                    <input id="<%=i%>" type="checkbox" name="<%=i%>" value="<%=ingredients1[i]%>">
+                    <label for="<%=i%>"><%=ingredients[ingredients1[i]].ingredientname%></label>
+                <% } %>
+        <% } %>
+        <input type="submit" value="Add Item">
     </form>
+    </div>
 
     <div id="google_translate_element"></div>
  

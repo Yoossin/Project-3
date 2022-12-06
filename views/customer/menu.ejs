@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <head>
-    <title>Menu</title>
-    <link rel="stylesheet" href="/kiosk.css">
+    <title id = "menu_title">Menu</title>
+    <link rel="stylesheet" href="/Main1.css">
 </head>
-<body>
-    <nav id="nav_bar">
+<body id="menu_body"">
+    <nav id="nav_bar_menu">
         <img src="/pom_honey_logo.png" id="pom_logo">
-        <a href="storelocation"><div id="storelocation">Store Location</div></a>
-    </nav>
-    <h1>ID, Name, Price, Ingredient IDs</h1>
+        <a href="/customer/storelocation"><div id="nav_storelocation">Home</div></a>
+        <a href="/customer/menu"><div id="nav_menu">Menu</div></a>
+        <a href="/customer/kiosk"><div id="nav_kiosk">Order</div></a>
+       
+    </div>
+    <h1 id = "menu_h1">Menu</h1>
+    <h2 id = "menu_images">
+        <img src="/pom_grain_bowl.jpg" id="img1">
+        <img src="/img_2.jpg" id="img2">
+        <img src="/img_3.jpg" id="img3">
+        <img src="/img_4.jpg" id="img4">
+        <img src="/img_5.jpg" id="img5">
+        <img src="/img_6.jpg" id="img6">
+        <img src="/img_7.jpg" id="img7">
+    </h2>
     <% for (var i in items) {%>
-        <p><%=items[i].itemid%>, <%=items[i].itemname%>, <%=items[i].price%>,
-        <% for (var j in itemingredients[i]) {%>
-            <%=itemingredients[i][j].ingredientname%>,
-        <% } %>
+        <p id = menu_listing><%=items[i].itemid + 1%>. <%=items[i].itemname%>, $<%=items[i].price%>
+        <h3 id = menu_ingredients>
+            (<% for (var j in itemingredients[i]) {%>
+                <%=itemingredients[i][j].ingredientname%>,
+            <% } %>)
+        </h3>
         <p>
     <% } %>
+
 
     <div id="google_translate_element"></div>
  
@@ -35,3 +50,4 @@ cb=googleTranslateElementInit">
     </script>
 
 </body>
+
