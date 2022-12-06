@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <head>
     <title>Customer Order</title>
+    <link rel="stylesheet" href="/Main1.css">
 </head>
 <body>
+    <div class="navbar">
+        <img src="/pom_honey_logo.png" id="pom_logo">
+        <a href="/customer/storelocation"><div id="nav_storelocation">Home</div></a>
+        <a href="/customer/menu"><div id="nav_menu">Menu</div></a>
+        <a href="/customer/kiosk"><div id="nav_kiosk">Order</div></a>
+       
+    </div>
+
     <% for (var i in items) { %>
         <form action="additem" method="post">
             <label for="item"></label>

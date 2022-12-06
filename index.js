@@ -1174,22 +1174,32 @@ app.post('/customer/additem', (req, res) => {
     item.push(parseInt(req.body.item));
     ingredients = []
     ingredients1 = []
+    ingredients2 = []
     pool
-        .query('SELECT * FROM itemingredientids WHERE itemid = '+req.body.item+';')
+        .query('SELECT * FROM itemingredientids WHERE itemid = '+req.body.item+' ORDER BY ingredientid ASC;')
         .then(query_res => {
             for (let i = 0; i < query_res.rowCount; i++) {
-                ingredients1.push(query_res.rows[i].ingredientid);
+                ingredients2.push(query_res.rows[i].ingredientid);
             }
             pool
-                .query('SELECT * FROM ingredient;')
+                .query('SELECT * FROM inventory ORDER BY ingredientid ASC;')
                 .then(query_res => {
-                    for (let i = 0; i < query_res.rowCount; i++) {
-                        ingredients.push(query_res.rows[i]);
+                    for (let i = 0; i < ingredients2.length; i++) {
+                        if (query_res.rows[ingredients2[i]].stock > 0) {
+                            ingredients1.push(ingredients2[i]);
+                        }
                     }
-                    const data = {ingredients: ingredients, ingredients1: ingredients1};
-                    res.render('customer/additem', data);
+                    pool
+                        .query('SELECT * FROM ingredient;')
+                        .then(query_res => {
+                            for (let i = 0; i < query_res.rowCount; i++) {
+                                ingredients.push(query_res.rows[i]);
+                            }
+                            const data = {ingredients: ingredients, ingredients1: ingredients1};
+                            res.render('customer/additem', data);
+                        })
+            })
                 })
-        })
 })
 
 app.get("/customer/menu", (req, res) => {
