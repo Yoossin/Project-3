@@ -41,7 +41,6 @@
         </script>   
           <a><button class="button_nav" onclick="button2()">Style Change</button></a>
        
-          <a><button type="button" onclick="button2()">Style Change</button></a>
     </div>
     <div class = "menu_h1">Menu</div>
     <h2 id = "menu_images">
@@ -58,9 +57,7 @@
         <p id = menu_listing><%=items[i].itemid + 1%>. <%=items[i].itemname%>, $<%=items[i].price%>
         <h3 id = menu_ingredients>
             (<% for (var j in itemingredients[i]) {%>
-                <% if (itemingredients[i][j].ingredientid < 32 || itemingredients[i][j].ingredientid > 38) { %>
-                    <%=itemingredients[i][j].ingredientname%>,
-                <% } %>
+                <%=itemingredients[i][j].ingredientname%>,
             <% } %>)
         </h3>
         <p>

@@ -51,10 +51,10 @@
     <div class="receipt">
     <% price = 0 %>
     <% for (var i in itemids) {%>
-        <% price += items[itemids[i]].price*100 %>
+        <% price += items[itemids[i]].price %>
         <p><%=items[itemids[i]].itemname%>, $<%=items[itemids[i]].price%><p>
     <% } %>
-    <p>Total: $<%=price/100%></p>
+    <p>Total: $<%=price%></p>
         </div>
     <div class ="receipt_button_wrapper">
     <form action="/employee" method="post">

@@ -4,6 +4,14 @@
     <link id="StyleSheetID" rel="stylesheet" href="/Main1.css">
 </head>
 <body>
+    <form action="salesreporttimewindow" method="post">
+        <label for="starttime">Start Time:</label>
+        <input id="starttime" type="text" name="starttime"/>
+        <label for="endtime">End Time:</label>
+        <input id="endtime" type="text" name="endtime"/>
+        <input type="submit" value="Enter"/>
+    </form>
+
     <div class="navbar">
         <img src="/pom_honey_logo.png" id="pom_logo">
         <a href="salesreport"><div id="salesreport">Sales Report</div></a>
@@ -38,16 +46,6 @@
           }
         </script>   
           <a><button class="button_nav" onclick="button2()">Style Change</button></a>
-    </div>
-
-    <div id="form_wrapper">
-        <form action="salesreporttimewindow" method="post">
-            <label for="starttime">Start Time:</label>
-            <input id="starttime" type="text" name="starttime"/>
-            <label for="endtime">End Time:</label>
-            <input id="endtime" type="text" name="endtime"/>
-            <input type="submit" value="Enter"/>
-        </form>
     </div>
 
     <div class ="translate" id="google_translate_element"></div>

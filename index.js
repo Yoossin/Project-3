@@ -20,40 +20,19 @@ process.on('SIGINT', function() {
     process.exit(0);
 });
 
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded());
 app.use(express.static(__dirname + '/public'));
 
 app.set("view engine", "ejs");
 
-/**
- * @swagger
- * /manager:
- *   get:
- *     summary: Retrieves the manager/oauth webpage
- *     description: Retrieves the webpage for displaying the authentication page to the manager.
-*/
 app.get('/', (req, res) => {
     res.redirect('/manager/oauth');
 });
 
-/**
- * @swagger
- * /manager/oauth:
- *   get:
- *     summary: Retrieves the manager/oauth webpage
- *     description: Retrieves the webpage for displaying the authentication page to the manager.
-*/
 app.get('/manager/oauth', (req, res) => {
     res.render('manager/oauth');
 })
 
-/**
- * @swagger
- * /manager/customerorder:
- *   get:
- *     summary: Retrieves the manager/customerorder webpage
- *     description: Retrieves the webpage for displaying the customer order page to the manager.
-*/
 app.get('/manager/customerorder', (req, res) => {
     customerorders = []
     customerorderitemids = []
@@ -97,24 +76,10 @@ app.get('/manager/customerorder', (req, res) => {
         });
 });
 
-/**
- * @swagger
- * /manager/customerordersearch:
- *   get:
- *     summary: Retrieves the manager/customerordersearch webpage
- *     description: Retrieves the webpage for displaying the customerordersearch page to the manager.
-*/
 app.get('/manager/customerordersearch', (req, res) => {
     res.render('manager/customerordersearch');
 })
 
-/**
- * @swagger
- * /manager/customerordersearch:
- *   post:
- *     summary: Searches for customer orders using the manager/customerordersearch webpage
- *     description: Allows the manager to search for customer orders using the customerordersearch GUI.
-*/
 app.post('/manager/customerordersearch', (req, res) => {
     if (req.body.customerorderattribute == "ordertimestamp") {
         customerorders = []
@@ -209,13 +174,6 @@ app.post('/manager/customerordersearch', (req, res) => {
     }
 })
 
-/**
- * @swagger
- * /manager/employee:
- *   get:
- *     summary: Retrieves the manager/employee webpage
- *     description: Retrieves the webpage for displaying the employee page to the manager.
-*/
 app.get('/manager/employee', (req, res) => {
     employees = []
     pool
@@ -229,57 +187,22 @@ app.get('/manager/employee', (req, res) => {
         })
 });
 
-/**
- * @swagger
- * /manager/addemployee:
- *   get:
- *     summary: Retrieves the manager/addemployee webpage
- *     description: Retrieves the webpage for displaying the addemployee page to the manager.
-*/
 app.get('/manager/addemployee', (req, res) => {
     res.render('manager/addemployee');
 });
 
-/**
- * @swagger
- * /manager/removeemployee:
- *   get:
- *     summary: Retrieves the manager/removeemployee webpage
- *     description: Retrieves the webpage for displaying the removeemployee page to the manager.
-*/
 app.get('/manager/removeemployee', (req, res) => {
     res.render('manager/removeemployee');
 })
 
-/**
- * @swagger
- * /manager/updateemployee:
- *   get:
- *     summary: Retrieves the manager/updateemployee webpage
- *     description: Retrieves the webpage for displaying the updateemployee page to the manager.
-*/
 app.get('/manager/updateemployee', (req, res) => {
     res.render('manager/updateemployee');
 })
 
-/**
- * @swagger
- * /manager/employeesearch:
- *   get:
- *     summary: Retrieves the manager/employeesearch webpage
- *     description: Retrieves the webpage for displaying the employeesearch page to the manager.
-*/
 app.get('/manager/employeesearch', (req, res) => {
     res.render('manager/employeesearch');
 })
 
-/**
- * @swagger
- * /manager/addemployee:
- *   post:
- *     summary: Adds employee using the manager/addemployee webpage
- *     description: Allows the manager to add an employee into the employee GUI.
-*/
 app.post('/manager/addemployee', (req, res) => {
     pool
     .query('SELECT COUNT(employeeid) from employee;')
@@ -290,37 +213,16 @@ app.post('/manager/addemployee', (req, res) => {
     res.redirect('/manager/employee');
 })
 
-/**
- * @swagger
- * /manager/removeemployee:
- *   post:
- *     summary: Removes employee using the manager/removeemployee webpage
- *     description: Allows the manager to remove an employee using the employee GUI.
-*/
 app.post('/manager/removeemployee', (req, res) => {
     pool.query("UPDATE employee SET employeestatus='' WHERE employeeid="+req.body.employeeid+";")
     res.redirect('/manager/employee');
 })
 
-/**
- * @swagger
- * /manager/updateemployee:
- *   post:
- *     summary: Updates employee using the manager/updateemployee webpage
- *     description: Allows the manager to update an employee's status using the employee GUI.
-*/
 app.post('/manager/updateemployee', (req, res) => {
     pool.query("UPDATE employee SET employeename='"+req.body.employeename+"', employeestatus='"+req.body.employeestatus+"' WHERE employeeid="+req.body.employeeid+";")
     res.redirect('/manager/employee');
 })
 
-/**
- * @swagger
- * /manager/employeesearch:
- *   post:
- *     summary: Searches employees using the manager/employeesearch webpage
- *     description: Allows the manager to search for employees using the employeesearch GUI.
-*/
 app.post('/manager/employeesearch', (req, res) => {
     if (req.body.employeeattribute == "employeeid") {
         employees = []
@@ -347,13 +249,6 @@ app.post('/manager/employeesearch', (req, res) => {
     }
 })
 
-/**
- * @swagger
- * /manager/inventory:
- *   get:
- *     summary: Retrieves the manager/inventory webpage
- *     description: Retrieves the webpage for displaying the inventory page to the manager.
-*/
 app.get('/manager/inventory', (req, res) => {
     ingredients = []
     inventory = []
@@ -375,57 +270,22 @@ app.get('/manager/inventory', (req, res) => {
         });
 });
 
-/**
- * @swagger
- * /manager/addingredient:
- *   get:
- *     summary: Retrieves the manager/addingredient webpage
- *     description: Retrieves the webpage for displaying the addingredient page to the manager.
-*/
 app.get('/manager/addingredient', (req, res) => {
     res.render('manager/addingredient');
 });
 
-/**
- * @swagger
- * /manager/removeingredient:
- *   get:
- *     summary: Retrieves the manager/removeingredient webpage
- *     description: Retrieves the webpage for displaying the removeingredient page to the manager.
-*/
 app.get('/manager/removeingredient', (req, res) => {
     res.render('manager/removeingredient');
 })
 
-/**
- * @swagger
- * /manager/updateingredient:
- *   get:
- *     summary: Retrieves the manager/updateingredient webpage
- *     description: Retrieves the webpage for displaying the updateingredient page to the manager.
-*/
 app.get('/manager/updateingredient', (req, res) => {
     res.render('manager/updateingredient');
 })
 
-/**
- * @swagger
- * /manager/inventorysearch:
- *   get:
- *     summary: Retrieves the manager/inventorysearch webpage
- *     description: Retrieves the webpage for displaying the inventorysearch page to the manager.
-*/
 app.get('/manager/inventorysearch', (req, res) => {
     res.render('manager/inventorysearch');
 })
 
-/**
- * @swagger
- * /manager/addingredient:
- *   post:
- *     summary: Adds ingredient using the manager/addingredient webpage
- *     description: Allows the manager to add an ingredient into the inventory.
-*/
 app.post('/manager/addingredient', (req, res) => {
     pool
     .query('SELECT COUNT(ingredientid) FROM ingredient')
@@ -445,25 +305,11 @@ app.post('/manager/addingredient', (req, res) => {
     res.redirect('/manager/inventory');
 })
 
-/**
- * @swagger
- * /manager/removeingredient:
- *   post:
- *     summary: Remove ingredient using the manager/removeingredient webpage
- *     description: Allows the manager to remove an ingredient into the inventory.
-*/
 app.post('/manager/removeingredient', (req, res) => {
     pool.query("UPDATE inventory SET stockstatus='' WHERE ingredientid="+req.body.ingredientid+";")
     res.redirect('/manager/inventory');
 })
 
-/**
- * @swagger
- * /manager/updateingredient:
- *   post:
- *     summary: Updates ingredient using the manager/updateingredient webpage
- *     description: Allows the manager to update ingredients through inventory.
-*/
 app.post('/manager/updateingredient', (req, res) => {
     pool.query("UPDATE ingredient SET ingredientname='"+req.body.ingredientname+"' WHERE ingredientid="+req.body.ingredientid+";")
     pool
@@ -483,13 +329,6 @@ app.post('/manager/updateingredient', (req, res) => {
     res.redirect('/manager/inventory');
 })
 
-/**
- * @swagger
- * /manager/inventorysearch:
- *   post:
- *     summary: Searches the manager/inventorysearch webpage
- *     description: Allows the manager to search through inventory.
-*/
 app.post('/manager/inventorysearch', (req, res) => {
     if (req.body.inventoryattribute == "ingredientname") {
         ingredients = []
@@ -555,13 +394,6 @@ app.post('/manager/inventorysearch', (req, res) => {
     }
 })
 
-/**
- * @swagger
- * /manager/menu:
- *   get:
- *     summary: Retrieves the manager/menu webpage
- *     description: Retrieves the webpage for displaying the menu page to the manager.
-*/
 app.get('/manager/menu', (req, res) => {
     items = []
     itemingredientids = []
@@ -607,57 +439,22 @@ app.get('/manager/menu', (req, res) => {
         });
 });
 
-/**
- * @swagger
- * /manager/additem:
- *   get:
- *     summary: Retrieves the manager/additem webpage
- *     description: Retrieves the webpage for displaying the additem page to the manager.
-*/
 app.get('/manager/additem', (req, res) => {
     res.render('manager/additem');
 });
 
-/**
- * @swagger
- * /manager/removeitem:
- *   get:
- *     summary: Retrieves the manager/removeitem webpage
- *     description: Retrieves the webpage for displaying the removeitem page to the manager.
-*/
 app.get('/manager/removeitem', (req, res) => {
     res.render('manager/removeitem');
 })
 
-/**
- * @swagger
- * /manager/updateitem:
- *   get:
- *     summary: Retrieves the manager/updateitem webpage
- *     description: Retrieves the webpage for displaying the updateitem page to the manager.
-*/
 app.get('/manager/updateitem', (req, res) => {
     res.render('manager/updateitem');
 })
 
-/**
- * @swagger
- * /manager/menusearch:
- *   get:
- *     summary: Retrieves the manager/menusearch webpage
- *     description: Retrieves the webpage for displaying the menusearch page to the manager.
-*/
 app.get('/manager/menusearch', (req, res) => {
     res.render('manager/menusearch');
 })
 
-/**
- * @swagger
- * /manager/additem:
- *   post:
- *     summary: Adds item using the manager/additem webpage
- *     description: Allows manager to add item using additem webpage.
-*/
 app.post('/manager/additem', (req, res) => {
     ingredientids = req.body.ingredientids.split(',');
     pool
@@ -672,37 +469,16 @@ app.post('/manager/additem', (req, res) => {
     res.redirect('/manager/menu');
 })
 
-/**
- * @swagger
- * /manager/removeitem:
- *   post:
- *     summary: Removes item using the manager/removeitem webpage
- *     description: Allows manager to remove item using removeitem webpage.
-*/
 app.post('/manager/removeitem', (req, res) => {
     pool.query("UPDATE item SET onmenu='No' WHERE itemid="+req.body.itemid+';');
     res.redirect('/manager/menu');
 })
 
-/**
- * @swagger
- * /manager/updateitem:
- *   post:
- *     summary: Updates items using the manager/updateitem webpage
- *     description: Allows manager to update item using updateitem webpage.
-*/
 app.post('/manager/updateitem', (req, res) => {
     pool.query("UPDATE item SET itemname='"+req.body.itemname+"', price="+req.body.itemprice+", onmenu='"+req.body.onmenu+"' WHERE itemid="+req.body.itemid+";")
     res.redirect('/manager/menu');
 })
 
-/**
- * @swagger
- * /manager/menusearch:
- *   post:
- *     summary: Searches through the menu using the manager/menusearch webpage
- *     description: Allows the manager to search through the menu using the menusearch GUI.
-*/
 app.post('/manager/menusearch', (req, res) => {
     if (req.body.menuattribute == "itemid" || req.body.menuattribute == "price") {
         items = []
@@ -803,13 +579,6 @@ app.post('/manager/menusearch', (req, res) => {
     }
 })
 
-/**
- * @swagger
- * /manager/storeorder:
- *   get:
- *     summary: Retrieves the manager/storeorder webpage
- *     description: Retrieves the webpage for displaying the storeorder page to the manager.
-*/
 app.get('/manager/storeorder', (req, res) => {
     storeorders = []
     storeorderingredientids = []
@@ -864,35 +633,14 @@ app.get('/manager/storeorder', (req, res) => {
         });
 });
 
-/**
- * @swagger
- * /manager/addstoreorder:
- *   get:
- *     summary: Retrieves the manager/addstoreorder webpage
- *     description: Retrieves the webpage for displaying the addstoreorder page to the manager.
-*/
 app.get('/manager/addstoreorder', (req, res) => {
     res.render('manager/addstoreorder');
 });
 
-/**
- * @swagger
- * /manager/storeordersearch:
- *   get:
- *     summary: Retrieves the manager/storeordersearch webpage
- *     description: Retrieves the webpage for displaying the storeordersearch page to the manager
-*/
 app.get('/manager/storeordersearch', (req, res) => {
     res.render('manager/storeordersearch');
 })
 
-/**
- * @swagger
- * /manager/addstoreorder:
- *   post:
- *     summary: Adds a storeorder to the manager/storeorder webpage
- *     description: Allows a manager to add a storeorder using the storeorder webpage.
-*/
 app.post('/manager/addstoreorder', (req, res) => {
     amounts = req.body.amounts.split(',');
     ingredientids = req.body.ingredientids.split(',');
@@ -923,15 +671,8 @@ app.post('/manager/addstoreorder', (req, res) => {
     res.redirect('/manager/storeorder');
 })
 
-/**
- * @swagger
- * /manager/storeordersearch:
- *   post:
- *     summary: Searches through the manager/storeorder webpage
- *     description: Allows the manager to search for a storeorder using the storeordersearch GUI.
-*/
 app.post('/manager/storeordersearch', (req, res) => {
-    if (req.body.storeorderattribute == "orderplaced" || req.body.storeorderattribute == "orderreceived") {
+    if (req.body.storeorderattribute == "orderplaced" || req.body.storeorderattribute == "orderreveived") {
         storeorders = []
         storeorderingredientids = []
         storeorderingredients = []
@@ -1046,15 +787,9 @@ app.post('/manager/storeordersearch', (req, res) => {
     }
 })
 
-/**
- * @swagger
- * /employee:
- *   get:
- *     summary: Retrieves the main employee webpage
- *     description: Retrieves the webpage for displaying the main employee GUI.
-*/
+itemids = [];
+
 app.get('/employee', (req, res) => {
-    itemids = [];
     items = []
     pool
         .query('SELECT * FROM item ORDER BY itemid ASC;')
@@ -1067,14 +802,12 @@ app.get('/employee', (req, res) => {
         });
 });
 
-/**
- * @swagger
- * /employee:
- *   post:
- *     summary: Routes to the main employee webpage
- *     description: Routes to the webpage for displaying the main employee GUI.
-*/
 app.post('/employee', (req, res) => {
+    if (req.body.removeitems == 0) {
+        itemids = []
+        res.redirect('employee');
+        return;
+    }
     if (req.body.completeorder == 0) {
         ordertimestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');
         price = 0;
@@ -1133,13 +866,6 @@ app.post('/employee', (req, res) => {
     }
 })
 
-/**
- * @swagger
- * /manager/salesreport:
- *   get:
- *     summary: Retrieve the manager/salesreport webpage
- *     description: Retrieves the webpage for displaying the sales report to the manager.
-*/
 app.get('/manager/salesreport', (req, res) => {
     items = []
     pool
@@ -1168,24 +894,10 @@ app.get('/manager/salesreport', (req, res) => {
         })
 })
 
-/**
- * @swagger
- * /manager/salesreporttimewindow:
- *   get:
- *     summary: Retrieve the manager/salesreporttimewindow webpage
- *     description: Retrieves the webpage for displaying the sales report time window to the manager.
-*/
 app.get('/manager/salesreporttimewindow', (req, res) => {
     res.render('manager/salesreporttimewindow');
 })
 
-/**
- * @swagger
- * /manager/salesreporttimewindow:
- *   post:
- *     summary: Specify a time to view the sales report from the manager/salesreporttimewindow webpage
- *     description: Allows a manager to specify a time window for them to view the salesreport GUI.
-*/
 app.post('/manager/salesreporttimewindow', (req, res) => {
     items = []
     pool
@@ -1222,13 +934,6 @@ app.post('/manager/salesreporttimewindow', (req, res) => {
         })
 })
 
-/**
- * @swagger
- * /manager/salestogether:
- *   get:
- *     summary: Retrieve the manager/salestogether webpage
- *     description: Retrieves the webpage for displaying the sales together report to the manager.
-*/
 app.get('/manager/salestogether', (req, res) => {
     items = []
     items1 = []
@@ -1272,24 +977,10 @@ app.get('/manager/salestogether', (req, res) => {
         })
 })
 
-/**
- * @swagger
- * /manager/salestogethertimewindow:
- *   get:
- *     summary: Retrieve the manager/restockreport webpage
- *     description: Retrieves the webpage for displaying the restock report to the manager.
-*/
 app.get('/manager/salestogethertimewindow', (req, res) => {
     res.render('manager/salestogethertimewindow');
 })
 
-/**
- * @swagger
- * /manager/salestogethertimewindow:
- *   post:
- *     summary: Specify a time to view the sales together from the manager/salestogethertimewindow webpage
- *     description: Allows a manager to specify a time window for them to view the salestogether GUI.
-*/
 app.post('/manager/salestogethertimewindow', (req, res) => {
     items = []
     items1 = []
@@ -1341,13 +1032,6 @@ app.post('/manager/salestogethertimewindow', (req, res) => {
         })
 })
 
-/**
- * @swagger
- * /manager/restockreport:
- *   get:
- *     summary: Retrieve the manager/restockreport webpage
- *     description: Retrieves the webpage for displaying the restock report to the manager.
-*/
 app.get('/manager/restockreport', (req, res) => {
     inventory = []
     ingredients = []
@@ -1369,13 +1053,6 @@ app.get('/manager/restockreport', (req, res) => {
         })
 })
 
-/**
- * @swagger
- * /manager/excessreport:
- *   get:
- *     summary: Retrieve the manager/excessreport webpage
- *     description: Retrieves the webpage for displaying the excess report to the manager.
-*/
 app.get('/manager/excessreport', (req, res) => {
     ingredients = []
     percents = []
@@ -1383,24 +1060,10 @@ app.get('/manager/excessreport', (req, res) => {
     res.render('manager/excessreport', data);
 })
 
-/**
- * @swagger
- * /manager/excessreporttime:
- *   get:
- *     summary: Retrieve the manager/excessreporttime webpage
- *     description: Retrieves the webpage for displaying the excess report time window to the manager.
-*/
 app.get('/manager/excessreporttime', (req, res) => {
     res.render('manager/excessreporttime');
 })
 
-/**
- * @swagger
- * /manager/excessreporttime:
- *   post:
- *     summary: Specify a time to view the excess report from the manager/excessreporttime webpage
- *     description: Allows a manager to specify a time window for them to view the excessreport GUI.
-*/
 app.post('/manager/excessreporttime', (req, res) => {
     ingredients = []
     ingredients1 = []
@@ -1438,15 +1101,9 @@ app.post('/manager/excessreporttime', (req, res) => {
         })
 })
 
-/**
- * @swagger
- * /customer/kiosk:
- *   get:
- *     summary: Retrieve the customer/kiosk webpage
- *     description: Retrieves the webpage for displaying the ordering kiosk to the customer.
-*/
+items1 = []
+
 app.get('/customer/kiosk', (req, res) => {
-    items1 = [];
     items = []
     pool
         .query('SELECT * FROM item ORDER BY itemid ASC;')
@@ -1459,14 +1116,12 @@ app.get('/customer/kiosk', (req, res) => {
         });
 })
 
-/**
- * @swagger
- * /customer/kiosk:
- *   post:
- *     summary: Completes an order from the customer/kiosk webpage
- *     description: Allows a customer to complete their order using the kiosk GUI.
-*/
 app.post('/customer/kiosk', (req, res) => {
+    if (req.body.removeitems == 0) {
+        items1 = []
+        res.render('customer/kiosk');
+        return;
+    }
     if (req.body.completeorder == 0) {
         ordertimestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');
         price = 0;
@@ -1526,13 +1181,6 @@ app.post('/customer/kiosk', (req, res) => {
     }
 })
 
-/**
- * @swagger
- * /customer/additem:
- *   post:
- *     summary: Adds an item to the customer/kiosk webpage.
- *     description: Allows a customer to add an item to their order using the additem GUI.
-*/
 app.post('/customer/additem', (req, res) => {
     item = []
     item.push(parseInt(req.body.item));
@@ -1566,13 +1214,6 @@ app.post('/customer/additem', (req, res) => {
                 })
 })
 
-/**
- * @swagger
- * /customer/menu:
- *   get:
- *     summary: Retrieve the customer/menu webpage
- *     description: Retrieves the webpage for displaying the menu to the customer website.
-*/
 app.get("/customer/menu", (req, res) => {
     items = []
     itemingredientids = []
@@ -1615,13 +1256,6 @@ app.get("/customer/menu", (req, res) => {
         });
 })
 
-/**
- * @swagger
- * /customer/storelocation:
- *   get:
- *     summary: Retrieve the customer/storelocation webpage
- *     description: Retrieves the webpage for displaying the store location to the customer website.
-*/
 app.get('/customer/storelocation', (req, res) => {
     res.render('customer/storelocation');
 });

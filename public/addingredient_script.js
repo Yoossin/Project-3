@@ -10,8 +10,8 @@ addingredient_form.addEventListener('submit',(e)=>{
         messages.push("Enter a valid ingredient name")
     }
     
-    if(!(/Lbs/.test(ingredientunit.value) || /Gal/.test(ingredientunit.value) || /Unit/.test(ingredientunit.value))){
-        messages.push("The ingredient unit should be Lbs or Gal or Unit")
+    if(/[a-zA-Z]/.test(ingredientunit.value) || /[`!@#$%^&*()_+\-=\[\]{};':"\\|,<>\/?~]/.test(ingredientunit.value)){
+        messages.push("The ingredient unit should be a positive number")
     }
 
     

@@ -2,7 +2,6 @@
 <head>
     <title>Update Ingredient</title>
     <link id="StyleSheetID" rel="stylesheet" href="/Main1.css">
-    <script defer src="/updateingredient_script.js"></script>
 </head>
 <body>
     
@@ -44,20 +43,19 @@
     </div>
     
     <div id="form_wrapper">
-        <div id="error"></div>
-        <form action="updateingredient" method="post" id="updateingredient_form">
+        <form action="updateingredient" method="post">
             <label for="ingredientid">Ingredient ID:</label>
-            <input id="ingredientid" type="text" name="ingredientid" required/>
+            <input id="ingredientid" type="text" name="ingredientid"/>
             <label for="ingredientname">Ingredient Name:</label>
-            <input id="ingredientname" type="text" name="ingredientname" required/>
+            <input id="ingredientname" type="text" name="ingredientname"/>
             <label for="ingredientstock">Ingredient Stock:</label>
-            <input id="ingredientstock" type="text" name="ingredientstock" required/>
+            <input id="ingredientstock" type="text" name="ingredientstock"/>
             <label for="ingredientlaststocked">Ingredient Last Stocked:</label>
-            <input id="ingredientlaststocked" type="text" name="ingredientlaststocked" required/>
+            <input id="ingredientlaststocked" type="text" name="ingredientlaststocked"/>
             <label for="ingredientstockstatus">Ingredient Stock Status:</label>
-            <input id="ingredientstockstatus" type="text" name="ingredientstockstatus" required/>
+            <input id="ingredientstockstatus" type="text" name="ingredientstockstatus"/>
             <label for="ingredientunit">Ingredient Unit:</label>
-            <input id="ingredientunit" type="text" name="ingredientunit" required/>
+            <input id="ingredientunit" type="text" name="ingredientunit"/>
             <input type="submit" value="Update Ingredient"/>
         </form>
     </div>

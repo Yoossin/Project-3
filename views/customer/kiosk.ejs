@@ -58,10 +58,6 @@
         <p class="receipt_text"><%=items[items1[i][0]].itemname%>, <%=items[items1[i][0]].price%><p>
     <% } %>
     <p class="receipt_text">Total: $<%=price%></p>
-        <% price += items[items1[i][0]].price*100 %>
-        <p><%=items[items1[i][0]].itemname%>, <%=items[items1[i][0]].price%><p>
-    <% } %>
-    <p>Total: $<%=price/100%></p>
         </div>
     <div class = "receipt_button_wrapper">
     <form action="kiosk" method="post">
@@ -95,11 +91,3 @@ cb=googleTranslateElementInit">
     </script>
 
 </body>
-<%#
-/**
- * @swagger
- * /kiosk.ejs:
- *      summary: Presents a kiosk to order food to the customer.
- *      description: Retrieves the webpage for displaying the kiosk to the customer
-*/
-%>

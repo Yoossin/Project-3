@@ -2,7 +2,6 @@
 <head>
     <title>Add Store Order</title>
     <link id="StyleSheetID" rel="stylesheet" href="/Main1.css">
-    <script defer src="/addstoreorder_script.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -42,22 +41,21 @@
     </div>
 
     <div id="form_wrapper">
-        <div id="error"></div>
-        <form action="addstoreorder" method="post" id="addstoreorder_form">
+        <form action="addstoreorder" method="post">
             <label for="orderplaced">Order Placed:</label>
-            <input id="orderplaced" type="text" name="orderplaced" required/>
+            <input id="orderplaced" type="text" name="orderplaced"/>
             <label for="orderreceived">Order Received:</label>
-            <input id="orderreceived" type="text" name="orderreceived" required/>
+            <input id="orderreceived" type="text" name="orderreceived"/>
             <label for="price">Price:</label>
-            <input id="price" type="text" name="price" required/>
+            <input id="price" type="text" name="price"/>
             <label for="employeeid">Employee ID:</label>
-            <input id="employeeid" type="text" name="employeeid" required/>
+            <input id="employeeid" type="text" name="employeeid"/>
             <label for="amounts">Amounts:</label>
-            <input id="amounts" type="text" name="amounts" required/>
+            <input id="amounts" type="text" name="amounts"/>
             <label for="ingredientids">Ingredient IDs:</label>
-            <input id="ingredientids" type="text" name="ingredientids" required/>
+            <input id="ingredientids" type="text" name="ingredientids"/>
             <label for="prices">Prices:</label>
-            <input id="prices" type="text" name="prices" required/>
+            <input id="prices" type="text" name="prices"/>
             <input type="submit" value="Add Store Order" id="submit_button"/>
         </form>
     </div>
