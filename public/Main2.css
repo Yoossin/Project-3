@@ -1,6 +1,6 @@
 body{
     margin: 0px;
-    background-color: #5d8b46;
+    background-color: rgb(210,176,140);
 }
 
 #nav_bar_menu div{
@@ -10,7 +10,7 @@ body{
     font-size:20px;
 }
 #nav_bar_menu div:hover{
-    background-color: #5d8b46;
+    background-color: rgb(210,176,140);
     box-shadow: 0px 1px 1px white;
 }
 
@@ -18,43 +18,42 @@ body{
 #nav_bar_menu{
     font-size:0px;
     width:100%;
-    background-color: #2e3874;
+    background-color: rgb(210,176,140);
     text-align: center;
 }
 
 #menu_body {
     margin: 0px;
-    background-color: #5d8b46;
+    background-color: rgb(210,176,140);
     text-align: center;
     border: 1px solid white;
     border-radius:25px;
     width:fit-content;
-    font: 20px;
 }
 
 .menu_h1 {
   border: 1px solid white;
   border-radius:25px;
   padding: 15px;
-  background-color: #2e3874;
+  background-color: rgb(100, 155, 210);
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
   color: white;
-  font-size: 28px;
+  font-size: 40px;
   margin-top: 10px;
 }
 
 #menu_listing {
     font-family: Arial;
-    font-size: 30px;
+    font-size: 40px;
     color: white;
     padding-left: 1%;
     font-weight: bold;
 }
 
 #menu_ingredients {
-    font-size: 15px;
+    font-size: 20px;
     color: white;
     font-family: Arial;
     padding-left: 2%;
@@ -100,13 +99,11 @@ body{
     text-align: center;
 }
 
-
-
-
 #main_table{
     width: 99.5%;
     margin-right: 5px;
     background-color: white;
+    font-size: 16pt;
 }
 #main_table td{
     border: 1px solid black;
@@ -121,22 +118,23 @@ body{
     height: 650px;
     overflow-y: scroll;
     margin-top:3%;
-    box-shadow: 0px 0px 30px #2e3874;
+    box-shadow: 0px 0px 30px rgb(100, 155, 210);
 }
 
 /* Navbar container */
 .navbar {
     overflow: hidden;
-    background-color: #2e3874;
+    background-color: rgb(100, 155, 210);
     font-family: Arial;
     display: flex;
     justify-content: center;
+    font-size: 20px;
   }
   
   /* Links inside the navbar */
   .navbar a {   
     float: left;
-    font-size: 16px;
+    font-size: 20px;
     color: white;
     text-align: center;
     padding: 14px 16px;
@@ -150,7 +148,7 @@ body{
   
   /* Dropdown button */
 .dropdown .dropbtn {
-    font-size: 16px;
+    font-size: 20px;
     border: none;
     outline: none;
     color: white;
@@ -180,12 +178,12 @@ body{
 
 /* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: 5d8b46;
+    background-color: rgb(210,176,140);
   }
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
-    background-color: #5d8b46;
+    background-color: rgb(210,176,140);
   } 
 
 .dropdown:hover .dropdown-content {
@@ -220,18 +218,18 @@ body{
     width: 25%;
     margin:auto;
     margin-top:3%;
-    box-shadow: 0px 0px 30px #2e3874;
+    box-shadow: 0px 0px 30px rgb(100, 155, 210);
     padding-bottom: 10px;
     padding-top: 10px;
 }
 #form_wrapper input{
     display:block;
     margin: auto;
-    background-color: #2e3874;
+    background-color: rgb(100, 155, 210);
     color:white;
 }
 #form_wrapper label{
-    font-size: 18px;
+    font-size: 20px;
     color: white;
     display:block;
     text-align: center;
@@ -251,7 +249,7 @@ body{
   }
 
   .button {
-    background-color: #2e3874;
+    background-color: rgb(100, 155, 210);
     border: none;
     color: white;
     padding: 20px;
@@ -287,13 +285,14 @@ body{
 
   .titleBox {
     border: 1px solid white;
+    border-radius:25px;
     padding: 15px;
-    background-color: #2e3874;
+    background-color: rgb(100, 155, 210);
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
     color: white;
-    border-radius:25px;
+    font-size: 45px;
   }
 
   div.translate {
@@ -301,12 +300,11 @@ body{
     bottom: 0;
     left: 0;
   }
-
   .item_button {
-    background-color: #2e3874;
+    background-color: rgb(100, 155, 210);
     border: none;
     color: white;
-    padding: 20px;
+    padding: 24px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -314,7 +312,7 @@ body{
     margin: 10px 10px;
     cursor: pointer;
     height:auto;
-    width:250px;
+    width:300px;
     border-radius: 15px;
     border: 2px solid white;
   }
@@ -339,7 +337,7 @@ body{
   margin-bottom: 2%;
   border-radius: 15px;
   border: 5px solid white;
-  background-color: #2e3874;
+  background-color: rgb(210,176,140);;
   width:50%;
   margin-left:25%;
 
@@ -359,18 +357,18 @@ body{
 }
 
 .complete_button {
-  background-color: #5d8b46;
+  background-color: rgb(100, 155, 210);;
   border: none;
   color: white;
   padding: 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
+  font-size: 24px;
   margin: 10px 10px;
   cursor: pointer;
   height:auto;
-  width:250px;
+  width:300px;
   border-radius: 15px;
   border: 2px solid white;
 }
@@ -381,7 +379,11 @@ body{
   margin-left:15%;
 }
 
+.receipt_text{
+  font-size: 20px;
+}
+
 .button_nav{
-  font-size: 13px;
+  font-size: 16px;
   border-radius: 13px;
 }

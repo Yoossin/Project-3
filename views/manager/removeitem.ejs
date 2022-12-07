@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <head>
     <title>Remove Item</title>
-    <link rel="stylesheet" href="/Main1.css">
+    <link id="StyleSheetID" rel="stylesheet" href="/Main1.css">
+    <script defer src="/removeitem_script.js"></script>
 </head>
 <body>
     
@@ -9,17 +10,49 @@
     <nav id="nav_bar">
         <img src="/pom_honey_logo.png" id="pom_logo">
         <a href="menu"><div id="nav_storeOrders">Menu</div></a>
+        <script>
+            function StyleChange(){
+              var link = document.getElementById("StyleSheetID"); 
+              PageStyle = localStorage.getItem('CurrentStyle');
+              if(PageStyle == 'Main1'){
+                  link.setAttribute('href', '/Main1.css')
+              }
+              else if(PageStyle == 'Main2'){
+                  link.setAttribute('href', '/Main2.css')
+              }
+              else if (PageStyle == null){
+                  link.setAttribute('href', '/Main1.css')
+                  localStorage.setItem('CurrentStyle', 'Main1');
+              }
+          }
+          StyleChange();
+          </script>
+          <script>
+            function button2(){
+              var link = document.getElementById("StyleSheetID"); 
+              if(link.getAttribute("href") == "/Main1.css"){
+                link.setAttribute("href", "/Main2.css"); 
+                localStorage.setItem('CurrentStyle', 'Main2');
+              } 
+              else if(link.getAttribute("href") == "/Main2.css"){
+                link.setAttribute("href", "/Main1.css"); 
+                localStorage.setItem('CurrentStyle', 'Main1');
+              }
+          }
+        </script>   
+          <a><button class="button_nav" onclick="button2()">Style Change</button></a>
     </nav>
     
     <div id="form_wrapper">
-        <form action="removeitem" method="post">
+        <div id="error"></div>
+        <form action="removeitem" method="post" id="removeitem_form">
             <label for="itemid">Item ID</label>
             <input id="itemid" type="text" name="itemid"/>
             <input type="submit" value="Remove Item" id="submit_button"/>
         </form>
     </div>
 
-    <div id="google_translate_element"></div>
+    <div class ="translate" id="google_translate_element"></div>
  
     <script type="text/javascript">
         function googleTranslateElementInit() {

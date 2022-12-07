@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <title>Customer Order</title>
-    <link rel="stylesheet" href="/Main1.css">
+    <link id="StyleSheetID" rel="stylesheet" href="/Main1.css">
 </head>
 <body>
     <div class="navbar">
@@ -9,29 +9,75 @@
         <a href="/customer/storelocation"><div id="nav_storelocation">Home</div></a>
         <a href="/customer/menu"><div id="nav_menu">Menu</div></a>
         <a href="/customer/kiosk"><div id="nav_kiosk">Order</div></a>
-       
+        <script>
+            function StyleChange(){
+              var link = document.getElementById("StyleSheetID"); 
+              PageStyle = localStorage.getItem('CurrentStyle');
+              if(PageStyle == 'Main1'){
+                  link.setAttribute('href', '/Main1.css')
+              }
+              else if(PageStyle == 'Main2'){
+                  link.setAttribute('href', '/Main2.css')
+              }
+              else if (PageStyle == null){
+                  link.setAttribute('href', '/Main1.css')
+                  localStorage.setItem('CurrentStyle', 'Main1');
+              }
+          }
+          StyleChange();
+          </script>
+          <script>
+            function button2(){
+              var link = document.getElementById("StyleSheetID"); 
+              if(link.getAttribute("href") == "/Main1.css"){
+                link.setAttribute("href", "/Main2.css"); 
+                localStorage.setItem('CurrentStyle', 'Main2');
+              } 
+              else if(link.getAttribute("href") == "/Main2.css"){
+                link.setAttribute("href", "/Main1.css"); 
+                localStorage.setItem('CurrentStyle', 'Main1');
+              }
+          }
+        </script>   
+          <a><button class="button_nav" onclick="button2()">Style Change</button></a>
     </div>
-
+    <div class="item_div">
     <% for (var i in items) { %>
         <form action="additem" method="post">
             <label for="item"></label>
             <input id="item" type="hidden" name="item" value="<%=i%>">
-            <input type="submit" value="<%=items[i].itemname%>">
+            <input class="item_button" type="submit" value="<%=items[i].itemname%>">
         </form>
     <% } %>
-    <form action="kiosk" method="post">
-        <label for="completeorder"></label>
-        <input id="completeorder" type="hidden" name="completeorder" value="0"/>
-        <input type="submit" value="Complete Order"/>
-    </form>
+    </div>
+    <div class="receipt_div">
+    <div class="receipt">
     <% price = 0 %>
     <% for (var i in items1) {%>
         <% price += items[items1[i][0]].price %>
+        <p class="receipt_text"><%=items[items1[i][0]].itemname%>, <%=items[items1[i][0]].price%><p>
+    <% } %>
+    <p class="receipt_text">Total: $<%=price%></p>
+        <% price += items[items1[i][0]].price*100 %>
         <p><%=items[items1[i][0]].itemname%>, <%=items[items1[i][0]].price%><p>
     <% } %>
-    <p><%=price%></p>
+    <p>Total: $<%=price/100%></p>
+        </div>
+    <div class = "receipt_button_wrapper">
+    <form action="kiosk" method="post">
+        <label for="removeitems"></label>
+        <input id="removeitems" type="hidden" name="removeitems" value="0"/>
+        <input class="complete_button" type="submit" value="Remove Items"/>
+    </form>
+    <form action="kiosk" method="post">
+        <label for="completeorder"></label>
+        <input id="completeorder" type="hidden" name="completeorder" value="0"/>
+        <input class="complete_button" type="submit" value="Complete Order"/>
+    </form>
+    </div>
+</div>
 
-    <div id="google_translate_element"></div>
+    <div class ="translate" id="google_translate_element"></div>
  
     <script type="text/javascript">
         function googleTranslateElementInit() {
@@ -49,3 +95,11 @@ cb=googleTranslateElementInit">
     </script>
 
 </body>
+<%#
+/**
+ * @swagger
+ * /kiosk.ejs:
+ *      summary: Presents a kiosk to order food to the customer.
+ *      description: Retrieves the webpage for displaying the kiosk to the customer
+*/
+%>

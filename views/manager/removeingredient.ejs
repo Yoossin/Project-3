@@ -1,25 +1,58 @@
 <!DOCTYPE html>
 <head>
     <title>Remove Ingredient</title>
-    <link rel="stylesheet" href="/Main1.css">
+    <link id="StyleSheetID" rel="stylesheet" href="/Main1.css">
+    <script defer src="/removeingredient_script.js"></script>
 </head>
 <body>
     
 
-    <nav id="nav_bar">
+    <div class="navbar">
         <img src="/pom_honey_logo.png" id="pom_logo">
-        <a href="inventory"><div id="nav_storeOrders">Inventory</div></a>
-    </nav>
+        <a href="inventory"><div id="inventory">Inventory</div></a>
+        <script>
+            function StyleChange(){
+              var link = document.getElementById("StyleSheetID"); 
+              PageStyle = localStorage.getItem('CurrentStyle');
+              if(PageStyle == 'Main1'){
+                  link.setAttribute('href', '/Main1.css')
+              }
+              else if(PageStyle == 'Main2'){
+                  link.setAttribute('href', '/Main2.css')
+              }
+              else if (PageStyle == null){
+                  link.setAttribute('href', '/Main1.css')
+                  localStorage.setItem('CurrentStyle', 'Main1');
+              }
+          }
+          StyleChange();
+          </script>
+          <script>
+            function button2(){
+              var link = document.getElementById("StyleSheetID"); 
+              if(link.getAttribute("href") == "/Main1.css"){
+                link.setAttribute("href", "/Main2.css"); 
+                localStorage.setItem('CurrentStyle', 'Main2');
+              } 
+              else if(link.getAttribute("href") == "/Main2.css"){
+                link.setAttribute("href", "/Main1.css"); 
+                localStorage.setItem('CurrentStyle', 'Main1');
+              }
+          }
+        </script>   
+          <a><button class="button_nav" onclick="button2()">Style Change</button></a>
+    </div>
     
     <div id="form_wrapper">
-        <form action="removeingredient" method="post">
+        <div id="error"></div>
+        <form action="removeingredient" method="post" id="removeingredient_form">
             <label for="ingredientid">Ingredient ID:</label>
-            <input id="ingredientid" type="text" name="ingredientid"/>
+            <input id="ingredientid" type="text" name="ingredientid" required/>
             <input type="submit" value="Remove Ingredient"/>
         </form>
     </div>
 
-    <div id="google_translate_element"></div>
+    <div class ="translate" id="google_translate_element"></div>
  
     <script type="text/javascript">
         function googleTranslateElementInit() {

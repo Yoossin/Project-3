@@ -1,0 +1,1398 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Pom &amp; Honey POS</title>
+    <style type="text/css">
+      body {
+      	font-family: Trebuchet MS, sans-serif;
+      	font-size: 15px;
+      	color: #444;
+      	margin-right: 24px;
+      }
+      
+      h1	{
+      	font-size: 25px;
+      }
+      h2	{
+      	font-size: 20px;
+      }
+      h3	{
+      	font-size: 16px;
+      	font-weight: bold;
+      }
+      hr	{
+      	height: 1px;
+      	border: 0;
+      	color: #ddd;
+      	background-color: #ddd;
+      }
+      
+      .app-desc {
+        clear: both;
+        margin-left: 20px;
+      }
+      .param-name {
+        width: 100%;
+      }
+      .license-info {
+        margin-left: 20px;
+      }
+      
+      .license-url {
+        margin-left: 20px;
+      }
+      
+      .model {
+        margin: 0 0 0px 20px;
+      }
+      
+      .method {
+        margin-left: 20px;
+      }
+      
+      .method-notes	{
+      	margin: 10px 0 20px 0;
+      	font-size: 90%;
+      	color: #555;
+      }
+      
+      pre {
+        padding: 10px;
+        margin-bottom: 2px;
+      }
+      
+      .http-method {
+       text-transform: uppercase;
+      }
+      
+      pre.get {
+        background-color: #0f6ab4;
+      }
+      
+      pre.post {
+        background-color: #10a54a;
+      }
+      
+      pre.put {
+        background-color: #c5862b;
+      }
+      
+      pre.delete {
+        background-color: #a41e22;
+      }
+      
+      .huge	{
+      	color: #fff;
+      }
+      
+      pre.example {
+        background-color: #f3f3f3;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      
+      code {
+        white-space: pre;
+      }
+      
+      .nickname {
+        font-weight: bold;
+      }
+      
+      .method-path {
+        font-size: 1.5em;
+        background-color: #0f6ab4;
+      }
+      
+      .up {
+        float:right;
+      }
+      
+      .parameter {
+        width: 500px;
+      }
+      
+      .param {
+        width: 500px;
+        padding: 10px 0 0 20px;
+        font-weight: bold;
+      }
+      
+      .param-desc {
+        width: 700px;
+        padding: 0 0 0 20px;
+        color: #777;
+      }
+      
+      .param-type {
+        font-style: italic;
+      }
+      
+      .param-enum-header {
+      width: 700px;
+      padding: 0 0 0 60px;
+      color: #777;
+      font-weight: bold;
+      }
+      
+      .param-enum {
+      width: 700px;
+      padding: 0 0 0 80px;
+      color: #777;
+      font-style: italic;
+      }
+      
+      .field-label {
+        padding: 0;
+        margin: 0;
+        clear: both;
+      }
+      
+      .field-items	{
+      	padding: 0 0 15px 0;
+      	margin-bottom: 15px;
+      }
+      
+      .return-type {
+        clear: both;
+        padding-bottom: 10px;
+      }
+      
+      .param-header {
+        font-weight: bold;
+      }
+      
+      .method-tags {
+        text-align: right;
+      }
+      
+      .method-tag {
+        background: none repeat scroll 0% 0% #24A600;
+        border-radius: 3px;
+        padding: 2px 10px;
+        margin: 2px;
+        color: #FFF;
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>Pom &amp; Honey POS</h1>
+    <div class="app-desc">This is a point-of-sale system developed for Pom &amp; Honey using ExpressAPI</div>
+    <div class="app-desc">More information: <a href="https://helloreverb.com">https://helloreverb.com</a></div>
+    <div class="app-desc">Contact Info: <a href="hello@helloreverb.com">hello@helloreverb.com</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    
+    <div class="license-info">All rights reserved</div>
+    <div class="license-url">http://apache.org/licenses/LICENSE-2.0.html</div>
+  <h2>Access</h2>
+
+  <h2><a name="__Methods">Methods</a></h2>
+  [ Jump to <a href="#__Models">Models</a> ]
+
+  <h3>Table of Contents </h3>
+  <div class="method-summary"></div>
+  <h4><a href="#Default">Default</a></h4>
+  <ul>
+  <li><a href="#customerAdditemPost"><code><span class="http-method">post</span> /customer/additem</code></a></li>
+  <li><a href="#customerKioskGet"><code><span class="http-method">get</span> /customer/kiosk</code></a></li>
+  <li><a href="#customerKioskPost"><code><span class="http-method">post</span> /customer/kiosk</code></a></li>
+  <li><a href="#customerMenuGet"><code><span class="http-method">get</span> /customer/menu</code></a></li>
+  <li><a href="#customerStorelocationGet"><code><span class="http-method">get</span> /customer/storelocation</code></a></li>
+  <li><a href="#employeeGet"><code><span class="http-method">get</span> /employee</code></a></li>
+  <li><a href="#employeePost"><code><span class="http-method">post</span> /employee</code></a></li>
+  <li><a href="#managerAddemployeeGet"><code><span class="http-method">get</span> /manager/addemployee</code></a></li>
+  <li><a href="#managerAddemployeePost"><code><span class="http-method">post</span> /manager/addemployee</code></a></li>
+  <li><a href="#managerAddingredientGet"><code><span class="http-method">get</span> /manager/addingredient</code></a></li>
+  <li><a href="#managerAddingredientPost"><code><span class="http-method">post</span> /manager/addingredient</code></a></li>
+  <li><a href="#managerAdditemGet"><code><span class="http-method">get</span> /manager/additem</code></a></li>
+  <li><a href="#managerAdditemPost"><code><span class="http-method">post</span> /manager/additem</code></a></li>
+  <li><a href="#managerAddstoreorderGet"><code><span class="http-method">get</span> /manager/addstoreorder</code></a></li>
+  <li><a href="#managerAddstoreorderPost"><code><span class="http-method">post</span> /manager/addstoreorder</code></a></li>
+  <li><a href="#managerCustomerorderGet"><code><span class="http-method">get</span> /manager/customerorder</code></a></li>
+  <li><a href="#managerCustomerordersearchGet"><code><span class="http-method">get</span> /manager/customerordersearch</code></a></li>
+  <li><a href="#managerCustomerordersearchPost"><code><span class="http-method">post</span> /manager/customerordersearch</code></a></li>
+  <li><a href="#managerEmployeeGet"><code><span class="http-method">get</span> /manager/employee</code></a></li>
+  <li><a href="#managerEmployeesearchGet"><code><span class="http-method">get</span> /manager/employeesearch</code></a></li>
+  <li><a href="#managerEmployeesearchPost"><code><span class="http-method">post</span> /manager/employeesearch</code></a></li>
+  <li><a href="#managerExcessreportGet"><code><span class="http-method">get</span> /manager/excessreport</code></a></li>
+  <li><a href="#managerExcessreporttimeGet"><code><span class="http-method">get</span> /manager/excessreporttime</code></a></li>
+  <li><a href="#managerExcessreporttimePost"><code><span class="http-method">post</span> /manager/excessreporttime</code></a></li>
+  <li><a href="#managerGet"><code><span class="http-method">get</span> /manager</code></a></li>
+  <li><a href="#managerInventoryGet"><code><span class="http-method">get</span> /manager/inventory</code></a></li>
+  <li><a href="#managerInventorysearchGet"><code><span class="http-method">get</span> /manager/inventorysearch</code></a></li>
+  <li><a href="#managerInventorysearchPost"><code><span class="http-method">post</span> /manager/inventorysearch</code></a></li>
+  <li><a href="#managerMenuGet"><code><span class="http-method">get</span> /manager/menu</code></a></li>
+  <li><a href="#managerMenusearchGet"><code><span class="http-method">get</span> /manager/menusearch</code></a></li>
+  <li><a href="#managerMenusearchPost"><code><span class="http-method">post</span> /manager/menusearch</code></a></li>
+  <li><a href="#managerOauthGet"><code><span class="http-method">get</span> /manager/oauth</code></a></li>
+  <li><a href="#managerRemoveemployeeGet"><code><span class="http-method">get</span> /manager/removeemployee</code></a></li>
+  <li><a href="#managerRemoveemployeePost"><code><span class="http-method">post</span> /manager/removeemployee</code></a></li>
+  <li><a href="#managerRemoveingredientGet"><code><span class="http-method">get</span> /manager/removeingredient</code></a></li>
+  <li><a href="#managerRemoveingredientPost"><code><span class="http-method">post</span> /manager/removeingredient</code></a></li>
+  <li><a href="#managerRemoveitemGet"><code><span class="http-method">get</span> /manager/removeitem</code></a></li>
+  <li><a href="#managerRemoveitemPost"><code><span class="http-method">post</span> /manager/removeitem</code></a></li>
+  <li><a href="#managerRestockreportGet"><code><span class="http-method">get</span> /manager/restockreport</code></a></li>
+  <li><a href="#managerSalesreportGet"><code><span class="http-method">get</span> /manager/salesreport</code></a></li>
+  <li><a href="#managerSalesreporttimewindowGet"><code><span class="http-method">get</span> /manager/salesreporttimewindow</code></a></li>
+  <li><a href="#managerSalesreporttimewindowPost"><code><span class="http-method">post</span> /manager/salesreporttimewindow</code></a></li>
+  <li><a href="#managerSalestogetherGet"><code><span class="http-method">get</span> /manager/salestogether</code></a></li>
+  <li><a href="#managerSalestogethertimewindowGet"><code><span class="http-method">get</span> /manager/salestogethertimewindow</code></a></li>
+  <li><a href="#managerSalestogethertimewindowPost"><code><span class="http-method">post</span> /manager/salestogethertimewindow</code></a></li>
+  <li><a href="#managerStoreorderGet"><code><span class="http-method">get</span> /manager/storeorder</code></a></li>
+  <li><a href="#managerStoreordersearchGet"><code><span class="http-method">get</span> /manager/storeordersearch</code></a></li>
+  <li><a href="#managerStoreordersearchPost"><code><span class="http-method">post</span> /manager/storeordersearch</code></a></li>
+  <li><a href="#managerUpdateemployeeGet"><code><span class="http-method">get</span> /manager/updateemployee</code></a></li>
+  <li><a href="#managerUpdateemployeePost"><code><span class="http-method">post</span> /manager/updateemployee</code></a></li>
+  <li><a href="#managerUpdateingredientGet"><code><span class="http-method">get</span> /manager/updateingredient</code></a></li>
+  <li><a href="#managerUpdateingredientPost"><code><span class="http-method">post</span> /manager/updateingredient</code></a></li>
+  <li><a href="#managerUpdateitemGet"><code><span class="http-method">get</span> /manager/updateitem</code></a></li>
+  <li><a href="#managerUpdateitemPost"><code><span class="http-method">post</span> /manager/updateitem</code></a></li>
+  </ul>
+
+  <h1><a name="Default">Default</a></h1>
+  <div class="method"><a name="customerAdditemPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /customer/additem</code></pre></div>
+    <div class="method-summary">Adds an item to the customer/kiosk webpage. (<span class="nickname">customerAdditemPost</span>)</div>
+    <div class="method-notes">Allows a customer to add an item to their order using the additem GUI.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="customerKioskGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /customer/kiosk</code></pre></div>
+    <div class="method-summary">Retrieve the customer/kiosk webpage (<span class="nickname">customerKioskGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the ordering kiosk to the customer.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="customerKioskPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /customer/kiosk</code></pre></div>
+    <div class="method-summary">Completes an order from the customer/kiosk webpage (<span class="nickname">customerKioskPost</span>)</div>
+    <div class="method-notes">Allows a customer to complete their order using the kiosk GUI.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="customerMenuGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /customer/menu</code></pre></div>
+    <div class="method-summary">Retrieve the customer/menu webpage (<span class="nickname">customerMenuGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the menu to the customer website.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="customerStorelocationGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /customer/storelocation</code></pre></div>
+    <div class="method-summary">Retrieve the customer/storelocation webpage (<span class="nickname">customerStorelocationGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the store location to the customer website.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="employeeGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /employee</code></pre></div>
+    <div class="method-summary">Retrieves the main employee webpage (<span class="nickname">employeeGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the main employee GUI.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="employeePost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /employee</code></pre></div>
+    <div class="method-summary">Routes to the main employee webpage (<span class="nickname">employeePost</span>)</div>
+    <div class="method-notes">Routes to the webpage for displaying the main employee GUI.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerAddemployeeGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/addemployee</code></pre></div>
+    <div class="method-summary">Retrieves the manager/addemployee webpage (<span class="nickname">managerAddemployeeGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the addemployee page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerAddemployeePost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/addemployee</code></pre></div>
+    <div class="method-summary">Adds employee using the manager/addemployee webpage (<span class="nickname">managerAddemployeePost</span>)</div>
+    <div class="method-notes">Allows the manager to add an employee into the employee GUI.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerAddingredientGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/addingredient</code></pre></div>
+    <div class="method-summary">Retrieves the manager/addingredient webpage (<span class="nickname">managerAddingredientGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the addingredient page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerAddingredientPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/addingredient</code></pre></div>
+    <div class="method-summary">Adds ingredient using the manager/addingredient webpage (<span class="nickname">managerAddingredientPost</span>)</div>
+    <div class="method-notes">Allows the manager to add an ingredient into the inventory.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerAdditemGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/additem</code></pre></div>
+    <div class="method-summary">Retrieves the manager/additem webpage (<span class="nickname">managerAdditemGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the additem page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerAdditemPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/additem</code></pre></div>
+    <div class="method-summary">Adds item using the manager/additem webpage (<span class="nickname">managerAdditemPost</span>)</div>
+    <div class="method-notes">Allows manager to add item using additem webpage.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerAddstoreorderGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/addstoreorder</code></pre></div>
+    <div class="method-summary">Retrieves the manager/addstoreorder webpage (<span class="nickname">managerAddstoreorderGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the addstoreorder page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerAddstoreorderPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/addstoreorder</code></pre></div>
+    <div class="method-summary">Adds a storeorder to the manager/storeorder webpage (<span class="nickname">managerAddstoreorderPost</span>)</div>
+    <div class="method-notes">Allows a manager to add a storeorder using the storeorder webpage.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerCustomerorderGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/customerorder</code></pre></div>
+    <div class="method-summary">Retrieves the manager/customerorder webpage (<span class="nickname">managerCustomerorderGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the customer order page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerCustomerordersearchGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/customerordersearch</code></pre></div>
+    <div class="method-summary">Retrieves the manager/customerordersearch webpage (<span class="nickname">managerCustomerordersearchGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the customerordersearch page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerCustomerordersearchPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/customerordersearch</code></pre></div>
+    <div class="method-summary">Searches for customer orders using the manager/customerordersearch webpage (<span class="nickname">managerCustomerordersearchPost</span>)</div>
+    <div class="method-notes">Allows the manager to search for customer orders using the customerordersearch GUI.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerEmployeeGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/employee</code></pre></div>
+    <div class="method-summary">Retrieves the manager/employee webpage (<span class="nickname">managerEmployeeGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the employee page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerEmployeesearchGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/employeesearch</code></pre></div>
+    <div class="method-summary">Retrieves the manager/employeesearch webpage (<span class="nickname">managerEmployeesearchGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the employeesearch page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerEmployeesearchPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/employeesearch</code></pre></div>
+    <div class="method-summary">Searches employees using the manager/employeesearch webpage (<span class="nickname">managerEmployeesearchPost</span>)</div>
+    <div class="method-notes">Allows the manager to search for employees using the employeesearch GUI.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerExcessreportGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/excessreport</code></pre></div>
+    <div class="method-summary">Retrieve the manager/excessreport webpage (<span class="nickname">managerExcessreportGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the excess report to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerExcessreporttimeGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/excessreporttime</code></pre></div>
+    <div class="method-summary">Retrieve the manager/excessreporttime webpage (<span class="nickname">managerExcessreporttimeGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the excess report time window to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerExcessreporttimePost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/excessreporttime</code></pre></div>
+    <div class="method-summary">Specify a time to view the excess report from the manager/excessreporttime webpage (<span class="nickname">managerExcessreporttimePost</span>)</div>
+    <div class="method-notes">Allows a manager to specify a time window for them to view the excessreport GUI.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager</code></pre></div>
+    <div class="method-summary">Retrieves the manager/oauth webpage (<span class="nickname">managerGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the authentication page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerInventoryGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/inventory</code></pre></div>
+    <div class="method-summary">Retrieves the manager/inventory webpage (<span class="nickname">managerInventoryGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the inventory page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerInventorysearchGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/inventorysearch</code></pre></div>
+    <div class="method-summary">Retrieves the manager/inventorysearch webpage (<span class="nickname">managerInventorysearchGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the inventorysearch page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerInventorysearchPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/inventorysearch</code></pre></div>
+    <div class="method-summary">Searches the manager/inventorysearch webpage (<span class="nickname">managerInventorysearchPost</span>)</div>
+    <div class="method-notes">Allows the manager to search through inventory.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerMenuGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/menu</code></pre></div>
+    <div class="method-summary">Retrieves the manager/menu webpage (<span class="nickname">managerMenuGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the menu page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerMenusearchGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/menusearch</code></pre></div>
+    <div class="method-summary">Retrieves the manager/menusearch webpage (<span class="nickname">managerMenusearchGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the menusearch page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerMenusearchPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/menusearch</code></pre></div>
+    <div class="method-summary">Searches through the menu using the manager/menusearch webpage (<span class="nickname">managerMenusearchPost</span>)</div>
+    <div class="method-notes">Allows the manager to search through the menu using the menusearch GUI.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerOauthGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/oauth</code></pre></div>
+    <div class="method-summary">Retrieves the manager/oauth webpage (<span class="nickname">managerOauthGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the authentication page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerRemoveemployeeGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/removeemployee</code></pre></div>
+    <div class="method-summary">Retrieves the manager/removeemployee webpage (<span class="nickname">managerRemoveemployeeGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the removeemployee page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerRemoveemployeePost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/removeemployee</code></pre></div>
+    <div class="method-summary">Removes employee using the manager/removeemployee webpage (<span class="nickname">managerRemoveemployeePost</span>)</div>
+    <div class="method-notes">Allows the manager to remove an employee using the employee GUI.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerRemoveingredientGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/removeingredient</code></pre></div>
+    <div class="method-summary">Retrieves the manager/removeingredient webpage (<span class="nickname">managerRemoveingredientGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the removeingredient page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerRemoveingredientPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/removeingredient</code></pre></div>
+    <div class="method-summary">Remove ingredient using the manager/removeingredient webpage (<span class="nickname">managerRemoveingredientPost</span>)</div>
+    <div class="method-notes">Allows the manager to remove an ingredient into the inventory.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerRemoveitemGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/removeitem</code></pre></div>
+    <div class="method-summary">Retrieves the manager/removeitem webpage (<span class="nickname">managerRemoveitemGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the removeitem page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerRemoveitemPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/removeitem</code></pre></div>
+    <div class="method-summary">Removes item using the manager/removeitem webpage (<span class="nickname">managerRemoveitemPost</span>)</div>
+    <div class="method-notes">Allows manager to remove item using removeitem webpage.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerRestockreportGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/restockreport</code></pre></div>
+    <div class="method-summary">Retrieve the manager/restockreport webpage (<span class="nickname">managerRestockreportGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the restock report to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerSalesreportGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/salesreport</code></pre></div>
+    <div class="method-summary">Retrieve the manager/salesreport webpage (<span class="nickname">managerSalesreportGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the sales report to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerSalesreporttimewindowGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/salesreporttimewindow</code></pre></div>
+    <div class="method-summary">Retrieve the manager/salesreporttimewindow webpage (<span class="nickname">managerSalesreporttimewindowGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the sales report time window to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerSalesreporttimewindowPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/salesreporttimewindow</code></pre></div>
+    <div class="method-summary">Specify a time to view the sales report from the manager/salesreporttimewindow webpage (<span class="nickname">managerSalesreporttimewindowPost</span>)</div>
+    <div class="method-notes">Allows a manager to specify a time window for them to view the salesreport GUI.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerSalestogetherGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/salestogether</code></pre></div>
+    <div class="method-summary">Retrieve the manager/salestogether webpage (<span class="nickname">managerSalestogetherGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the sales together report to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerSalestogethertimewindowGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/salestogethertimewindow</code></pre></div>
+    <div class="method-summary">Retrieve the manager/restockreport webpage (<span class="nickname">managerSalestogethertimewindowGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the restock report to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerSalestogethertimewindowPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/salestogethertimewindow</code></pre></div>
+    <div class="method-summary">Specify a time to view the sales together from the manager/salestogethertimewindow webpage (<span class="nickname">managerSalestogethertimewindowPost</span>)</div>
+    <div class="method-notes">Allows a manager to specify a time window for them to view the salestogether GUI.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerStoreorderGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/storeorder</code></pre></div>
+    <div class="method-summary">Retrieves the manager/storeorder webpage (<span class="nickname">managerStoreorderGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the storeorder page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerStoreordersearchGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/storeordersearch</code></pre></div>
+    <div class="method-summary">Retrieves the manager/storeordersearch webpage (<span class="nickname">managerStoreordersearchGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the storeordersearch page to the manager</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerStoreordersearchPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/storeordersearch</code></pre></div>
+    <div class="method-summary">Searches through the manager/storeorder webpage (<span class="nickname">managerStoreordersearchPost</span>)</div>
+    <div class="method-notes">Allows the manager to search for a storeorder using the storeordersearch GUI.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerUpdateemployeeGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/updateemployee</code></pre></div>
+    <div class="method-summary">Retrieves the manager/updateemployee webpage (<span class="nickname">managerUpdateemployeeGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the updateemployee page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerUpdateemployeePost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/updateemployee</code></pre></div>
+    <div class="method-summary">Updates employee using the manager/updateemployee webpage (<span class="nickname">managerUpdateemployeePost</span>)</div>
+    <div class="method-notes">Allows the manager to update an employee's status using the employee GUI.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerUpdateingredientGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/updateingredient</code></pre></div>
+    <div class="method-summary">Retrieves the manager/updateingredient webpage (<span class="nickname">managerUpdateingredientGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the updateingredient page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerUpdateingredientPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/updateingredient</code></pre></div>
+    <div class="method-summary">Updates ingredient using the manager/updateingredient webpage (<span class="nickname">managerUpdateingredientPost</span>)</div>
+    <div class="method-notes">Allows the manager to update ingredients through inventory.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerUpdateitemGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /manager/updateitem</code></pre></div>
+    <div class="method-summary">Retrieves the manager/updateitem webpage (<span class="nickname">managerUpdateitemGet</span>)</div>
+    <div class="method-notes">Retrieves the webpage for displaying the updateitem page to the manager.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="managerUpdateitemPost"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /manager/updateitem</code></pre></div>
+    <div class="method-summary">Updates items using the manager/updateitem webpage (<span class="nickname">managerUpdateitemPost</span>)</div>
+    <div class="method-notes">Allows manager to update item using updateitem webpage.</div>
+
+
+
+
+
+
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+  </div> <!-- method -->
+  <hr/>
+
+  <h2><a name="__Models">Models</a></h2>
+  [ Jump to <a href="#__Methods">Methods</a> ]
+
+  <h3>Table of Contents</h3>
+  <ol>
+  </ol>
+
+  </body>
+</html>

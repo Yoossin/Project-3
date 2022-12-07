@@ -1,28 +1,77 @@
 <!DOCTYPE html>
 <head>
     <title>Employee</title>
+    <link id="StyleSheetID" rel="stylesheet" href="/Main1.css">
 </head>
 <body>
+    <div class="navbar">
+        <img src="/pom_honey_logo.png" id="pom_logo">
+        <script>
+            function StyleChange(){
+              var link = document.getElementById("StyleSheetID"); 
+              PageStyle = localStorage.getItem('CurrentStyle');
+              if(PageStyle == 'Main1'){
+                  link.setAttribute('href', '/Main1.css')
+              }
+              else if(PageStyle == 'Main2'){
+                  link.setAttribute('href', '/Main2.css')
+              }
+              else if (PageStyle == null){
+                  link.setAttribute('href', '/Main1.css')
+                  localStorage.setItem('CurrentStyle', 'Main1');
+              }
+          }
+          StyleChange();
+          </script>
+          <script>
+            function button2(){
+              var link = document.getElementById("StyleSheetID"); 
+              if(link.getAttribute("href") == "/Main1.css"){
+                link.setAttribute("href", "/Main2.css"); 
+                localStorage.setItem('CurrentStyle', 'Main2');
+              } 
+              else if(link.getAttribute("href") == "/Main2.css"){
+                link.setAttribute("href", "/Main1.css"); 
+                localStorage.setItem('CurrentStyle', 'Main1');
+              }
+          }
+        </script>   
+          <a><button class="button_nav" onclick="button2()">Style Change</button></a>
+    </div>
+    <div class="item_div">
     <% for (var i in items) { %>
         <form action="/employee" method="post">
             <label for="item"></label>
             <input id="item" type="hidden" name="item" value="<%=i%>">
-            <input type="submit" value="<%=items[i].itemname%>">
+            <input class="item_button" type="submit" value="<%=items[i].itemname%>">
         </form>
     <% } %>
+    </div>
+    <div class="receipt_div">
+    <div class="receipt">
+    <% price = 0 %>
+    <% for (var i in itemids) {%>
+        <% price += items[itemids[i]].price*100 %>
+        <p><%=items[itemids[i]].itemname%>, $<%=items[itemids[i]].price%><p>
+    <% } %>
+    <p>Total: $<%=price/100%></p>
+        </div>
+    <div class ="receipt_button_wrapper">
+    <form action="/employee" method="post">
+        <label for="removeitems"></label>
+        <input id="removeitems" type="hidden" name="removeitems" value="0"/>
+        <input class="complete_button" type="submit" value="Remove Items"/>
+    </form>
+
     <form action="/employee" method="post">
         <label for="completeorder"></label>
         <input id="completeorder" type="hidden" name="completeorder" value="0"/>
-        <input type="submit" value="Complete Order"/>
+        <input class="complete_button" type="submit" value="Complete Order"/>
     </form>
-    <% price = 0 %>
-    <% for (var i in itemids) {%>
-        <% price += items[itemids[i]].price %>
-        <p><%=items[itemids[i]].itemname%>, <%=items[itemids[i]].price%><p>
-    <% } %>
-    <p><%=price%></p>
+    </div>
+</div>
 
-    <div id="google_translate_element"></div>
+    <div class ="translate" id="google_translate_element"></div>
  
     <script type="text/javascript">
         function googleTranslateElementInit() {

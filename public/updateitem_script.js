@@ -1,10 +1,11 @@
-const additem_form = document.getElementById('additem_form')
+const updateitem_form = document.getElementById('updateitem_form')
 const itemname = document.getElementById('itemname')
 const itemprice = document.getElementById('itemprice')
-const ingredientids  = document.getElementById('ingredientids')
+const itemid  = document.getElementById('itemid')
+const onmenu = document.getElementById('onmenu')
 const errorElement = document.getElementById('error')
 
-additem_form.addEventListener('submit',(e)=>{
+updateitem_form.addEventListener('submit',(e)=>{
     
     let messages = []
     if(!(/^[a-zA-Z]+$/.test(itemname.value))){
@@ -15,8 +16,8 @@ additem_form.addEventListener('submit',(e)=>{
         messages.push("The price should be a positive number")
     }
 
-    if(/[a-zA-Z]/.test(ingredientids.value) || /[`!@#$%^&*()_+\-=\[\]{};':"\\|.<>\/?~]/.test(ingredientids.value)){
-        messages.push("Ingredient IDs should be a list of comma separated integers")
+    if(/[a-zA-Z]/.test(itemid.value) || /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(itemid.value)){
+        messages.push("Item ID should be a positive integer")
     }
     
     if (messages.length > 0 ){

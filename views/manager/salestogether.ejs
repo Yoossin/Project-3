@@ -1,16 +1,69 @@
 <!DOCTYPE html>
 <head>
     <title>Sales Together</title>
+    <link id="StyleSheetID" rel="stylesheet" href="/Main1.css">
 </head>
 <body>
-    <a href="customerorder">Customer Order</a>
-    <a href="salestogethertimewindow">Time Window</a>
-    <h1>Item 1 ID, Name, Item 2 ID, Name, Number</h1>
-    <% for (var i in items) {%>
-        <p><%=items[i][0]%>, <%=items[i][1]%>, <%=items[i][2]%>, <%=items[i][3]%>, <%=items[i][4]%><p>
-    <% } %>
 
-    <div id="google_translate_element"></div>
+    <div class="navbar">
+        <img src="/pom_honey_logo.png" id="pom_logo">
+        <a href="customerorder"><div id="customerorder">Customer Order</div></a>
+        <a href="salestogethertimewindow"><div id="salestogethertimewindow">Sales Time Window</div></a>
+        <script>
+            function StyleChange(){
+              var link = document.getElementById("StyleSheetID"); 
+              PageStyle = localStorage.getItem('CurrentStyle');
+              if(PageStyle == 'Main1'){
+                  link.setAttribute('href', '/Main1.css')
+              }
+              else if(PageStyle == 'Main2'){
+                  link.setAttribute('href', '/Main2.css')
+              }
+              else if (PageStyle == null){
+                  link.setAttribute('href', '/Main1.css')
+                  localStorage.setItem('CurrentStyle', 'Main1');
+              }
+          }
+          StyleChange();
+          </script>
+          <script>
+            function button2(){
+              var link = document.getElementById("StyleSheetID"); 
+              if(link.getAttribute("href") == "/Main1.css"){
+                link.setAttribute("href", "/Main2.css"); 
+                localStorage.setItem('CurrentStyle', 'Main2');
+              } 
+              else if(link.getAttribute("href") == "/Main2.css"){
+                link.setAttribute("href", "/Main1.css"); 
+                localStorage.setItem('CurrentStyle', 'Main1');
+              }
+          }
+        </script>   
+          <a><button class="button_nav" onclick="button2()">Style Change</button></a>
+    </div>
+
+    <div id="table_wrapper">
+        <table id="main_table">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Sales</th>
+            </tr>
+            <% for (var i in items) {%>
+                <tr>
+                    <td id="ID"><%=items[i][0]%></td>
+                    <td id="Name"><%=items[i][1]%></td>
+                    <td id="Price"><%=items[i][2]%></td>
+                    <td id="Number"><%=items[i][3]%></td>
+                    <td id="Sales"><%=items[i][4]%></td>
+                </tr>
+            <% } %>
+        </table>
+        </div>
+
+    <div class ="translate" id="google_translate_element"></div>
  
     <script type="text/javascript">
         function googleTranslateElementInit() {

@@ -1,35 +1,68 @@
 <!DOCTYPE html>
 <head>
     <title>Add Store Order</title>
-    <link rel="stylesheet" href="/Main1.css">
+    <link id="StyleSheetID" rel="stylesheet" href="/Main1.css">
+    <script defer src="/addstoreorder_script.js"></script>
 </head>
 <body>
-    <nav id="nav_bar">
+    <div class="navbar">
         <img src="/pom_honey_logo.png" id="pom_logo">
         <a href="storeorder"><div id="nav_storeOrders">Store Orders</div></a>
-    </nav>
+        <script>
+            function StyleChange(){
+              var link = document.getElementById("StyleSheetID"); 
+              PageStyle = localStorage.getItem('CurrentStyle');
+              if(PageStyle == 'Main1'){
+                  link.setAttribute('href', '/Main1.css')
+              }
+              else if(PageStyle == 'Main2'){
+                  link.setAttribute('href', '/Main2.css')
+              }
+              else if (PageStyle == null){
+                  link.setAttribute('href', '/Main1.css')
+                  localStorage.setItem('CurrentStyle', 'Main1');
+              }
+          }
+          StyleChange();
+          </script>
+          <script>
+            function button2(){
+              var link = document.getElementById("StyleSheetID"); 
+              if(link.getAttribute("href") == "/Main1.css"){
+                link.setAttribute("href", "/Main2.css"); 
+                localStorage.setItem('CurrentStyle', 'Main2');
+              } 
+              else if(link.getAttribute("href") == "/Main2.css"){
+                link.setAttribute("href", "/Main1.css"); 
+                localStorage.setItem('CurrentStyle', 'Main1');
+              }
+          }
+        </script>   
+          <a><button class="button_nav" onclick="button2()">Style Change</button></a>
+    </div>
 
     <div id="form_wrapper">
-        <form action="addstoreorder" method="post">
+        <div id="error"></div>
+        <form action="addstoreorder" method="post" id="addstoreorder_form">
             <label for="orderplaced">Order Placed:</label>
-            <input id="orderplaced" type="text" name="orderplaced"/>
+            <input id="orderplaced" type="text" name="orderplaced" required/>
             <label for="orderreceived">Order Received:</label>
-            <input id="orderreceived" type="text" name="orderreceived"/>
+            <input id="orderreceived" type="text" name="orderreceived" required/>
             <label for="price">Price:</label>
-            <input id="price" type="text" name="price"/>
+            <input id="price" type="text" name="price" required/>
             <label for="employeeid">Employee ID:</label>
-            <input id="employeeid" type="text" name="employeeid"/>
+            <input id="employeeid" type="text" name="employeeid" required/>
             <label for="amounts">Amounts:</label>
-            <input id="amounts" type="text" name="amounts"/>
+            <input id="amounts" type="text" name="amounts" required/>
             <label for="ingredientids">Ingredient IDs:</label>
-            <input id="ingredientids" type="text" name="ingredientids"/>
+            <input id="ingredientids" type="text" name="ingredientids" required/>
             <label for="prices">Prices:</label>
-            <input id="prices" type="text" name="prices"/>
+            <input id="prices" type="text" name="prices" required/>
             <input type="submit" value="Add Store Order" id="submit_button"/>
         </form>
     </div>
 
-    <div id="google_translate_element"></div>
+    <div class ="translate" id="google_translate_element"></div>
  
     <script type="text/javascript">
         function googleTranslateElementInit() {

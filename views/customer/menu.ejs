@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <head>
     <title id = "menu_title">Menu</title>
-    <link rel="stylesheet" href="/Main1.css">
+    <link id="StyleSheetID" rel="stylesheet" href="/Main1.css">
 </head>
-<body id="menu_body"">
-    <nav id="nav_bar_menu">
+<body id="menu_body">
+    <div class="navbar">
         <img src="/pom_honey_logo.png" id="pom_logo">
         <a href="/customer/storelocation"><div id="nav_storelocation">Home</div></a>
         <a href="/customer/menu"><div id="nav_menu">Menu</div></a>
         <a href="/customer/kiosk"><div id="nav_kiosk">Order</div></a>
+        <script>
+            function StyleChange(){
+              var link = document.getElementById("StyleSheetID"); 
+              PageStyle = localStorage.getItem('CurrentStyle');
+              if(PageStyle == 'Main1'){
+                  link.setAttribute('href', '/Main1.css')
+              }
+              else if(PageStyle == 'Main2'){
+                  link.setAttribute('href', '/Main2.css')
+              }
+              else if (PageStyle == null){
+                  link.setAttribute('href', '/Main1.css')
+                  localStorage.setItem('CurrentStyle', 'Main1');
+              }
+          }
+          StyleChange();
+          </script>
+          <script>
+            function button2(){
+              var link = document.getElementById("StyleSheetID"); 
+              if(link.getAttribute("href") == "/Main1.css"){
+                link.setAttribute("href", "/Main2.css"); 
+                localStorage.setItem('CurrentStyle', 'Main2');
+              } 
+              else if(link.getAttribute("href") == "/Main2.css"){
+                link.setAttribute("href", "/Main1.css"); 
+                localStorage.setItem('CurrentStyle', 'Main1');
+              }
+          }
+        </script>   
+          <a><button class="button_nav" onclick="button2()">Style Change</button></a>
        
+          <a><button type="button" onclick="button2()">Style Change</button></a>
     </div>
-    <h1 id = "menu_h1">Menu</h1>
+    <div class = "menu_h1">Menu</div>
     <h2 id = "menu_images">
         <img src="/pom_grain_bowl.jpg" id="img1">
         <img src="/img_2.jpg" id="img2">
@@ -21,18 +53,22 @@
         <img src="/img_6.jpg" id="img6">
         <img src="/img_7.jpg" id="img7">
     </h2>
+    <p id="menu_text">
     <% for (var i in items) {%>
         <p id = menu_listing><%=items[i].itemid + 1%>. <%=items[i].itemname%>, $<%=items[i].price%>
         <h3 id = menu_ingredients>
             (<% for (var j in itemingredients[i]) {%>
-                <%=itemingredients[i][j].ingredientname%>,
+                <% if (itemingredients[i][j].ingredientid < 32 || itemingredients[i][j].ingredientid > 38) { %>
+                    <%=itemingredients[i][j].ingredientname%>,
+                <% } %>
             <% } %>)
         </h3>
         <p>
     <% } %>
+        </p>
 
 
-    <div id="google_translate_element"></div>
+    <div class ="translate" id="google_translate_element"></div>
  
     <script type="text/javascript">
         function googleTranslateElementInit() {
