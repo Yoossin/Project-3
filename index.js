@@ -20,7 +20,7 @@ process.on('SIGINT', function() {
     process.exit(0);
 });
 
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended:true}));
 app.use(express.static(__dirname + '/public'));
 
 app.set("view engine", "ejs");
